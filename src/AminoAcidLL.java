@@ -4,19 +4,24 @@ class AminoAcidLL{
   int[] counts;
   AminoAcidLL next;
 
-  AminoAcidLL(){
+  AminoAcidLL() {
 
   }
-
 
   /********************************************************************************************/
   /* Creates a new node, with a given amino acid/codon 
    * pair and increments the codon counter for that codon.
    * NOTE: Does not check for repeats!! */
   AminoAcidLL(String inCodon){
-  
+    aminoAcid =AminoAcidResources.getAminoAcidFromCodon(inCodon);
+    codons=AminoAcidResources.getCodonListForAminoAcid(aminoAcid);
+    counts=
   }
-
+public void incrementCodons(String codons){
+    for(int i= 0; i<codons.length();i++){
+      if()
+    }
+}
   /********************************************************************************************/
   /* Recursive method that increments the count for a specific codon:
    * If it should be at this node, increments it and stops, 
@@ -24,7 +29,18 @@ class AminoAcidLL{
    * If there is no next node, add a new node to the list that would contain the codon. 
    */
   private void addCodon(String inCodon){
-  
+  if (next==null){
+    if(this.node==inCodon){
+      incrementCodons(inCodon);
+    }if (aminoAcid==AminoAcidResources.getAminoAcidFromCodon(inCodon)){
+      incrementCodons(inCodon);
+    }
+    if (next!=null){
+      next.addCodon(inCodon);
+    }else{
+      next=new AminoAcidLL(inCodon);
+    }
+  }
   }
 
 
