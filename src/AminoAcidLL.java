@@ -65,7 +65,7 @@ public void incrementCodons(String codons){
     int diff = 0;
     for(int i=0; i<codons.length; i++){
       diff += Math.abs(counts[i] - inList.counts[i]);
-    }
+    } 
     return diff;
   }
 
